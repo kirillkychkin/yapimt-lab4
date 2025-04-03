@@ -30,7 +30,6 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
             tableLayoutPanel1 = new TableLayoutPanel();
             buttonEquals = new Button();
             buttonDot = new Button();
@@ -66,6 +65,9 @@
             buttonC = new Button();
             buttonE = new Button();
             buttonPi = new Button();
+            tabPage2 = new TabPage();
+            textMainDisplay = new TextBox();
+            textFormulaDisplay = new TextBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -92,16 +94,6 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1";
             tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(521, 542);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -194,6 +186,7 @@
             buttonNum0.TabIndex = 2;
             buttonNum0.Text = "0";
             buttonNum0.UseVisualStyleBackColor = true;
+            buttonNum0.Click += ButtonNumbers_Click;
             // 
             // buttonPlusMinus
             // 
@@ -227,6 +220,7 @@
             buttonNum1.TabIndex = 5;
             buttonNum1.Text = "1";
             buttonNum1.UseVisualStyleBackColor = true;
+            buttonNum1.Click += ButtonNumbers_Click;
             // 
             // buttonNum2
             // 
@@ -238,6 +232,7 @@
             buttonNum2.TabIndex = 6;
             buttonNum2.Text = "2";
             buttonNum2.UseVisualStyleBackColor = true;
+            buttonNum2.Click += ButtonNumbers_Click;
             // 
             // buttonNum3
             // 
@@ -249,6 +244,7 @@
             buttonNum3.TabIndex = 7;
             buttonNum3.Text = "3";
             buttonNum3.UseVisualStyleBackColor = true;
+            buttonNum3.Click += ButtonNumbers_Click;
             // 
             // buttonNum4
             // 
@@ -260,6 +256,7 @@
             buttonNum4.TabIndex = 8;
             buttonNum4.Text = "4";
             buttonNum4.UseVisualStyleBackColor = true;
+            buttonNum4.Click += ButtonNumbers_Click;
             // 
             // buttonNum5
             // 
@@ -271,6 +268,7 @@
             buttonNum5.TabIndex = 9;
             buttonNum5.Text = "5";
             buttonNum5.UseVisualStyleBackColor = true;
+            buttonNum5.Click += ButtonNumbers_Click;
             // 
             // buttonNum6
             // 
@@ -282,6 +280,7 @@
             buttonNum6.TabIndex = 10;
             buttonNum6.Text = "6";
             buttonNum6.UseVisualStyleBackColor = true;
+            buttonNum6.Click += ButtonNumbers_Click;
             // 
             // buttonNum7
             // 
@@ -293,6 +292,7 @@
             buttonNum7.TabIndex = 11;
             buttonNum7.Text = "7";
             buttonNum7.UseVisualStyleBackColor = true;
+            buttonNum7.Click += ButtonNumbers_Click;
             // 
             // buttonNum8
             // 
@@ -304,6 +304,7 @@
             buttonNum8.TabIndex = 12;
             buttonNum8.Text = "8";
             buttonNum8.UseVisualStyleBackColor = true;
+            buttonNum8.Click += ButtonNumbers_Click;
             // 
             // buttonNum9
             // 
@@ -315,6 +316,7 @@
             buttonNum9.TabIndex = 13;
             buttonNum9.Text = "9";
             buttonNum9.UseVisualStyleBackColor = true;
+            buttonNum9.Click += ButtonNumbers_Click;
             // 
             // buttonAdd
             // 
@@ -536,11 +538,43 @@
             buttonPi.Text = "π";
             buttonPi.UseVisualStyleBackColor = true;
             // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(521, 542);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textMainDisplay
+            // 
+            textMainDisplay.Dock = DockStyle.Bottom;
+            textMainDisplay.Font = new Font("Segoe UI", 36F, FontStyle.Bold);
+            textMainDisplay.Location = new Point(0, 137);
+            textMainDisplay.Name = "textMainDisplay";
+            textMainDisplay.Size = new Size(529, 71);
+            textMainDisplay.TabIndex = 1;
+            textMainDisplay.Text = "0";
+            textMainDisplay.TextAlign = HorizontalAlignment.Right;
+            // 
+            // textFormulaDisplay
+            // 
+            textFormulaDisplay.Dock = DockStyle.Bottom;
+            textFormulaDisplay.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            textFormulaDisplay.Location = new Point(0, 87);
+            textFormulaDisplay.Name = "textFormulaDisplay";
+            textFormulaDisplay.Size = new Size(529, 50);
+            textFormulaDisplay.TabIndex = 2;
+            // 
             // Calculator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(529, 778);
+            Controls.Add(textFormulaDisplay);
+            Controls.Add(textMainDisplay);
             Controls.Add(tabControl1);
             Name = "Calculator";
             StartPosition = FormStartPosition.CenterScreen;
@@ -549,6 +583,7 @@
             tabPage1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -591,5 +626,7 @@
         private Button buttonC;
         private Button buttonE;
         private Button buttonPi;
+        private TextBox textMainDisplay;
+        private TextBox textFormulaDisplay;
     }
 }
