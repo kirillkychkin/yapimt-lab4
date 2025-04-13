@@ -31,11 +31,11 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tableLayoutPanel1 = new TableLayoutPanel();
-            buttonEquals = new Button();
-            buttonDot = new Button();
+            SolveButton = new Button();
+            CommaButton = new Button();
             buttonNum0 = new Button();
-            buttonPlusMinus = new Button();
-            buttonLn = new Button();
+            PosOrNegButton = new Button();
+            LgButton = new Button();
             buttonNum1 = new Button();
             buttonNum2 = new Button();
             buttonNum3 = new Button();
@@ -48,22 +48,24 @@
             buttonAdd = new Button();
             buttonMinus = new Button();
             buttonMultiply = new Button();
-            buttonLog = new Button();
-            buttonTenPowerX = new Button();
-            buttonXPowerOfY = new Button();
+            LnButton = new Button();
+            CtgButton = new Button();
+            TgButton = new Button();
             buttonDivide = new Button();
-            buttonNfact = new Button();
-            buttonBracketRight = new Button();
-            buttonBracketLeft = new Button();
-            buttonSqrt = new Button();
-            buttonPowerOfTwo = new Button();
-            buttonInverse = new Button();
-            buttonModuleX = new Button();
-            buttonExp = new Button();
-            buttonMod = new Button();
+            RadicalButton = new Button();
+            SquareButton = new Button();
+            ReverseButton = new Button();
+            SinButton = new Button();
+            CosButton = new Button();
+            PercentButton = new Button();
+            CancelEntryButton = new Button();
+            ClearButton = new Button();
+            DeleteButton = new Button();
             tabPage2 = new TabPage();
             CurrentNumberLabel = new TextBox();
             CurrentExpressionLabel = new TextBox();
+            VariableButton = new Button();
+            HistoryButton = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -100,11 +102,11 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Controls.Add(buttonEquals, 4, 5);
-            tableLayoutPanel1.Controls.Add(buttonDot, 3, 5);
+            tableLayoutPanel1.Controls.Add(SolveButton, 4, 5);
+            tableLayoutPanel1.Controls.Add(CommaButton, 3, 5);
             tableLayoutPanel1.Controls.Add(buttonNum0, 2, 5);
-            tableLayoutPanel1.Controls.Add(buttonPlusMinus, 1, 5);
-            tableLayoutPanel1.Controls.Add(buttonLn, 0, 5);
+            tableLayoutPanel1.Controls.Add(PosOrNegButton, 1, 5);
+            tableLayoutPanel1.Controls.Add(LgButton, 0, 5);
             tableLayoutPanel1.Controls.Add(buttonNum1, 1, 4);
             tableLayoutPanel1.Controls.Add(buttonNum2, 2, 4);
             tableLayoutPanel1.Controls.Add(buttonNum3, 3, 4);
@@ -117,19 +119,19 @@
             tableLayoutPanel1.Controls.Add(buttonAdd, 4, 4);
             tableLayoutPanel1.Controls.Add(buttonMinus, 4, 3);
             tableLayoutPanel1.Controls.Add(buttonMultiply, 4, 2);
-            tableLayoutPanel1.Controls.Add(buttonLog, 0, 4);
-            tableLayoutPanel1.Controls.Add(buttonTenPowerX, 0, 3);
-            tableLayoutPanel1.Controls.Add(buttonXPowerOfY, 0, 2);
+            tableLayoutPanel1.Controls.Add(LnButton, 0, 4);
+            tableLayoutPanel1.Controls.Add(CtgButton, 0, 3);
+            tableLayoutPanel1.Controls.Add(TgButton, 0, 2);
             tableLayoutPanel1.Controls.Add(buttonDivide, 4, 1);
-            tableLayoutPanel1.Controls.Add(buttonNfact, 3, 1);
-            tableLayoutPanel1.Controls.Add(buttonBracketRight, 2, 1);
-            tableLayoutPanel1.Controls.Add(buttonBracketLeft, 1, 1);
-            tableLayoutPanel1.Controls.Add(buttonSqrt, 0, 1);
-            tableLayoutPanel1.Controls.Add(buttonPowerOfTwo, 0, 0);
-            tableLayoutPanel1.Controls.Add(buttonInverse, 1, 0);
-            tableLayoutPanel1.Controls.Add(buttonModuleX, 2, 0);
-            tableLayoutPanel1.Controls.Add(buttonExp, 3, 0);
-            tableLayoutPanel1.Controls.Add(buttonMod, 4, 0);
+            tableLayoutPanel1.Controls.Add(RadicalButton, 3, 1);
+            tableLayoutPanel1.Controls.Add(SquareButton, 2, 1);
+            tableLayoutPanel1.Controls.Add(ReverseButton, 1, 1);
+            tableLayoutPanel1.Controls.Add(SinButton, 0, 1);
+            tableLayoutPanel1.Controls.Add(CosButton, 0, 0);
+            tableLayoutPanel1.Controls.Add(PercentButton, 1, 0);
+            tableLayoutPanel1.Controls.Add(CancelEntryButton, 2, 0);
+            tableLayoutPanel1.Controls.Add(ClearButton, 3, 0);
+            tableLayoutPanel1.Controls.Add(DeleteButton, 4, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -144,30 +146,31 @@
             tableLayoutPanel1.Size = new Size(515, 536);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // buttonEquals
+            // SolveButton
             // 
-            buttonEquals.BackColor = Color.Violet;
-            buttonEquals.Dock = DockStyle.Fill;
-            buttonEquals.FlatStyle = FlatStyle.Flat;
-            buttonEquals.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonEquals.Location = new Point(415, 448);
-            buttonEquals.Name = "buttonEquals";
-            buttonEquals.Size = new Size(97, 85);
-            buttonEquals.TabIndex = 0;
-            buttonEquals.Text = "=";
-            buttonEquals.UseVisualStyleBackColor = false;
+            SolveButton.BackColor = Color.Violet;
+            SolveButton.Dock = DockStyle.Fill;
+            SolveButton.FlatStyle = FlatStyle.Flat;
+            SolveButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            SolveButton.Location = new Point(415, 448);
+            SolveButton.Name = "SolveButton";
+            SolveButton.Size = new Size(97, 85);
+            SolveButton.TabIndex = 0;
+            SolveButton.Text = "=";
+            SolveButton.UseVisualStyleBackColor = false;
+            SolveButton.Click += SolveClicked;
             // 
-            // buttonDot
+            // CommaButton
             // 
-            buttonDot.Dock = DockStyle.Fill;
-            buttonDot.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonDot.Location = new Point(312, 448);
-            buttonDot.Name = "buttonDot";
-            buttonDot.Size = new Size(97, 85);
-            buttonDot.TabIndex = 1;
-            buttonDot.Text = ",";
-            buttonDot.UseVisualStyleBackColor = true;
-            buttonDot.Click += EditingButtonClicked;
+            CommaButton.Dock = DockStyle.Fill;
+            CommaButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            CommaButton.Location = new Point(312, 448);
+            CommaButton.Name = "CommaButton";
+            CommaButton.Size = new Size(97, 85);
+            CommaButton.TabIndex = 1;
+            CommaButton.Text = ",";
+            CommaButton.UseVisualStyleBackColor = true;
+            CommaButton.Click += EditingButtonClicked;
             // 
             // buttonNum0
             // 
@@ -181,29 +184,29 @@
             buttonNum0.UseVisualStyleBackColor = true;
             buttonNum0.Click += IntKeyClicked;
             // 
-            // buttonPlusMinus
+            // PosOrNegButton
             // 
-            buttonPlusMinus.Dock = DockStyle.Fill;
-            buttonPlusMinus.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonPlusMinus.Location = new Point(106, 448);
-            buttonPlusMinus.Name = "buttonPlusMinus";
-            buttonPlusMinus.Size = new Size(97, 85);
-            buttonPlusMinus.TabIndex = 3;
-            buttonPlusMinus.Text = "+/-";
-            buttonPlusMinus.UseVisualStyleBackColor = true;
-            buttonPlusMinus.Click += EditingButtonClicked;
+            PosOrNegButton.Dock = DockStyle.Fill;
+            PosOrNegButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            PosOrNegButton.Location = new Point(106, 448);
+            PosOrNegButton.Name = "PosOrNegButton";
+            PosOrNegButton.Size = new Size(97, 85);
+            PosOrNegButton.TabIndex = 3;
+            PosOrNegButton.Text = "+/-";
+            PosOrNegButton.UseVisualStyleBackColor = true;
+            PosOrNegButton.Click += EditingButtonClicked;
             // 
-            // buttonLn
+            // LgButton
             // 
-            buttonLn.Dock = DockStyle.Fill;
-            buttonLn.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonLn.Location = new Point(3, 448);
-            buttonLn.Name = "buttonLn";
-            buttonLn.Size = new Size(97, 85);
-            buttonLn.TabIndex = 4;
-            buttonLn.Text = "lg";
-            buttonLn.UseVisualStyleBackColor = true;
-            buttonLn.Click += SingleOperatorClicked;
+            LgButton.Dock = DockStyle.Fill;
+            LgButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            LgButton.Location = new Point(3, 448);
+            LgButton.Name = "LgButton";
+            LgButton.Size = new Size(97, 85);
+            LgButton.TabIndex = 4;
+            LgButton.Text = "lg";
+            LgButton.UseVisualStyleBackColor = true;
+            LgButton.Click += SingleOperatorClicked;
             // 
             // buttonNum1
             // 
@@ -349,41 +352,41 @@
             buttonMultiply.UseVisualStyleBackColor = true;
             buttonMultiply.Click += DoubleOperatorClicked;
             // 
-            // buttonLog
+            // LnButton
             // 
-            buttonLog.Dock = DockStyle.Fill;
-            buttonLog.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonLog.Location = new Point(3, 359);
-            buttonLog.Name = "buttonLog";
-            buttonLog.Size = new Size(97, 83);
-            buttonLog.TabIndex = 17;
-            buttonLog.Text = "ln";
-            buttonLog.UseVisualStyleBackColor = true;
-            buttonLog.Click += SingleOperatorClicked;
+            LnButton.Dock = DockStyle.Fill;
+            LnButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            LnButton.Location = new Point(3, 359);
+            LnButton.Name = "LnButton";
+            LnButton.Size = new Size(97, 83);
+            LnButton.TabIndex = 17;
+            LnButton.Text = "ln";
+            LnButton.UseVisualStyleBackColor = true;
+            LnButton.Click += SingleOperatorClicked;
             // 
-            // buttonTenPowerX
+            // CtgButton
             // 
-            buttonTenPowerX.Dock = DockStyle.Fill;
-            buttonTenPowerX.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonTenPowerX.Location = new Point(3, 270);
-            buttonTenPowerX.Name = "buttonTenPowerX";
-            buttonTenPowerX.Size = new Size(97, 83);
-            buttonTenPowerX.TabIndex = 18;
-            buttonTenPowerX.Text = "ctg";
-            buttonTenPowerX.UseVisualStyleBackColor = true;
-            buttonTenPowerX.Click += SingleOperatorClicked;
+            CtgButton.Dock = DockStyle.Fill;
+            CtgButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            CtgButton.Location = new Point(3, 270);
+            CtgButton.Name = "CtgButton";
+            CtgButton.Size = new Size(97, 83);
+            CtgButton.TabIndex = 18;
+            CtgButton.Text = "ctg";
+            CtgButton.UseVisualStyleBackColor = true;
+            CtgButton.Click += SingleOperatorClicked;
             // 
-            // buttonXPowerOfY
+            // TgButton
             // 
-            buttonXPowerOfY.Dock = DockStyle.Fill;
-            buttonXPowerOfY.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonXPowerOfY.Location = new Point(3, 181);
-            buttonXPowerOfY.Name = "buttonXPowerOfY";
-            buttonXPowerOfY.Size = new Size(97, 83);
-            buttonXPowerOfY.TabIndex = 19;
-            buttonXPowerOfY.Text = "tg";
-            buttonXPowerOfY.UseVisualStyleBackColor = true;
-            buttonXPowerOfY.Click += SingleOperatorClicked;
+            TgButton.Dock = DockStyle.Fill;
+            TgButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            TgButton.Location = new Point(3, 181);
+            TgButton.Name = "TgButton";
+            TgButton.Size = new Size(97, 83);
+            TgButton.TabIndex = 19;
+            TgButton.Text = "tg";
+            TgButton.UseVisualStyleBackColor = true;
+            TgButton.Click += SingleOperatorClicked;
             // 
             // buttonDivide
             // 
@@ -397,113 +400,113 @@
             buttonDivide.UseVisualStyleBackColor = true;
             buttonDivide.Click += DoubleOperatorClicked;
             // 
-            // buttonNfact
+            // RadicalButton
             // 
-            buttonNfact.Dock = DockStyle.Fill;
-            buttonNfact.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonNfact.Location = new Point(312, 92);
-            buttonNfact.Name = "buttonNfact";
-            buttonNfact.Size = new Size(97, 83);
-            buttonNfact.TabIndex = 21;
-            buttonNfact.Text = "√x";
-            buttonNfact.UseVisualStyleBackColor = true;
-            buttonNfact.Click += SingleOperatorClicked;
+            RadicalButton.Dock = DockStyle.Fill;
+            RadicalButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            RadicalButton.Location = new Point(312, 92);
+            RadicalButton.Name = "RadicalButton";
+            RadicalButton.Size = new Size(97, 83);
+            RadicalButton.TabIndex = 21;
+            RadicalButton.Text = "√x";
+            RadicalButton.UseVisualStyleBackColor = true;
+            RadicalButton.Click += SingleOperatorClicked;
             // 
-            // buttonBracketRight
+            // SquareButton
             // 
-            buttonBracketRight.Dock = DockStyle.Fill;
-            buttonBracketRight.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonBracketRight.Location = new Point(209, 92);
-            buttonBracketRight.Name = "buttonBracketRight";
-            buttonBracketRight.Size = new Size(97, 83);
-            buttonBracketRight.TabIndex = 22;
-            buttonBracketRight.Text = "x²";
-            buttonBracketRight.UseVisualStyleBackColor = true;
-            buttonBracketRight.Click += SingleOperatorClicked;
+            SquareButton.Dock = DockStyle.Fill;
+            SquareButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            SquareButton.Location = new Point(209, 92);
+            SquareButton.Name = "SquareButton";
+            SquareButton.Size = new Size(97, 83);
+            SquareButton.TabIndex = 22;
+            SquareButton.Text = "x²";
+            SquareButton.UseVisualStyleBackColor = true;
+            SquareButton.Click += SingleOperatorClicked;
             // 
-            // buttonBracketLeft
+            // ReverseButton
             // 
-            buttonBracketLeft.Dock = DockStyle.Fill;
-            buttonBracketLeft.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonBracketLeft.Location = new Point(106, 92);
-            buttonBracketLeft.Name = "buttonBracketLeft";
-            buttonBracketLeft.Size = new Size(97, 83);
-            buttonBracketLeft.TabIndex = 23;
-            buttonBracketLeft.Text = "¹∕ₓ";
-            buttonBracketLeft.UseVisualStyleBackColor = true;
-            buttonBracketLeft.Click += SingleOperatorClicked;
+            ReverseButton.Dock = DockStyle.Fill;
+            ReverseButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            ReverseButton.Location = new Point(106, 92);
+            ReverseButton.Name = "ReverseButton";
+            ReverseButton.Size = new Size(97, 83);
+            ReverseButton.TabIndex = 23;
+            ReverseButton.Text = "¹∕ₓ";
+            ReverseButton.UseVisualStyleBackColor = true;
+            ReverseButton.Click += SingleOperatorClicked;
             // 
-            // buttonSqrt
+            // SinButton
             // 
-            buttonSqrt.Dock = DockStyle.Fill;
-            buttonSqrt.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonSqrt.Location = new Point(3, 92);
-            buttonSqrt.Name = "buttonSqrt";
-            buttonSqrt.Size = new Size(97, 83);
-            buttonSqrt.TabIndex = 24;
-            buttonSqrt.Text = "sin";
-            buttonSqrt.UseVisualStyleBackColor = true;
-            buttonSqrt.Click += SingleOperatorClicked;
+            SinButton.Dock = DockStyle.Fill;
+            SinButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            SinButton.Location = new Point(3, 92);
+            SinButton.Name = "SinButton";
+            SinButton.Size = new Size(97, 83);
+            SinButton.TabIndex = 24;
+            SinButton.Text = "sin";
+            SinButton.UseVisualStyleBackColor = true;
+            SinButton.Click += SingleOperatorClicked;
             // 
-            // buttonPowerOfTwo
+            // CosButton
             // 
-            buttonPowerOfTwo.Dock = DockStyle.Fill;
-            buttonPowerOfTwo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonPowerOfTwo.Location = new Point(3, 3);
-            buttonPowerOfTwo.Name = "buttonPowerOfTwo";
-            buttonPowerOfTwo.Size = new Size(97, 83);
-            buttonPowerOfTwo.TabIndex = 25;
-            buttonPowerOfTwo.Text = "cos";
-            buttonPowerOfTwo.UseVisualStyleBackColor = true;
-            buttonPowerOfTwo.Click += SingleOperatorClicked;
+            CosButton.Dock = DockStyle.Fill;
+            CosButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            CosButton.Location = new Point(3, 3);
+            CosButton.Name = "CosButton";
+            CosButton.Size = new Size(97, 83);
+            CosButton.TabIndex = 25;
+            CosButton.Text = "cos";
+            CosButton.UseVisualStyleBackColor = true;
+            CosButton.Click += SingleOperatorClicked;
             // 
-            // buttonInverse
+            // PercentButton
             // 
-            buttonInverse.Dock = DockStyle.Fill;
-            buttonInverse.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonInverse.Location = new Point(106, 3);
-            buttonInverse.Name = "buttonInverse";
-            buttonInverse.Size = new Size(97, 83);
-            buttonInverse.TabIndex = 26;
-            buttonInverse.Text = "%";
-            buttonInverse.UseVisualStyleBackColor = true;
-            buttonInverse.Click += DoubleOperatorClicked;
+            PercentButton.Dock = DockStyle.Fill;
+            PercentButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            PercentButton.Location = new Point(106, 3);
+            PercentButton.Name = "PercentButton";
+            PercentButton.Size = new Size(97, 83);
+            PercentButton.TabIndex = 26;
+            PercentButton.Text = "%";
+            PercentButton.UseVisualStyleBackColor = true;
+            PercentButton.Click += DoubleOperatorClicked;
             // 
-            // buttonModuleX
+            // CancelEntryButton
             // 
-            buttonModuleX.Dock = DockStyle.Fill;
-            buttonModuleX.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonModuleX.Location = new Point(209, 3);
-            buttonModuleX.Name = "buttonModuleX";
-            buttonModuleX.Size = new Size(97, 83);
-            buttonModuleX.TabIndex = 27;
-            buttonModuleX.Text = "CE";
-            buttonModuleX.UseVisualStyleBackColor = true;
-            buttonModuleX.Click += EditingButtonClicked;
+            CancelEntryButton.Dock = DockStyle.Fill;
+            CancelEntryButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            CancelEntryButton.Location = new Point(209, 3);
+            CancelEntryButton.Name = "CancelEntryButton";
+            CancelEntryButton.Size = new Size(97, 83);
+            CancelEntryButton.TabIndex = 27;
+            CancelEntryButton.Text = "CE";
+            CancelEntryButton.UseVisualStyleBackColor = true;
+            CancelEntryButton.Click += EditingButtonClicked;
             // 
-            // buttonExp
+            // ClearButton
             // 
-            buttonExp.Dock = DockStyle.Fill;
-            buttonExp.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonExp.Location = new Point(312, 3);
-            buttonExp.Name = "buttonExp";
-            buttonExp.Size = new Size(97, 83);
-            buttonExp.TabIndex = 28;
-            buttonExp.Text = "C";
-            buttonExp.UseVisualStyleBackColor = true;
-            buttonExp.Click += EditingButtonClicked;
+            ClearButton.Dock = DockStyle.Fill;
+            ClearButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            ClearButton.Location = new Point(312, 3);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new Size(97, 83);
+            ClearButton.TabIndex = 28;
+            ClearButton.Text = "C";
+            ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += EditingButtonClicked;
             // 
-            // buttonMod
+            // DeleteButton
             // 
-            buttonMod.Dock = DockStyle.Fill;
-            buttonMod.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            buttonMod.Location = new Point(415, 3);
-            buttonMod.Name = "buttonMod";
-            buttonMod.Size = new Size(97, 83);
-            buttonMod.TabIndex = 29;
-            buttonMod.Text = "←";
-            buttonMod.UseVisualStyleBackColor = true;
-            buttonMod.Click += EditingButtonClicked;
+            DeleteButton.Dock = DockStyle.Fill;
+            DeleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            DeleteButton.Location = new Point(415, 3);
+            DeleteButton.Name = "DeleteButton";
+            DeleteButton.Size = new Size(97, 83);
+            DeleteButton.TabIndex = 29;
+            DeleteButton.Text = "←";
+            DeleteButton.UseVisualStyleBackColor = true;
+            DeleteButton.Click += EditingButtonClicked;
             // 
             // tabPage2
             // 
@@ -535,11 +538,33 @@
             CurrentExpressionLabel.Size = new Size(529, 50);
             CurrentExpressionLabel.TabIndex = 2;
             // 
+            // VariableButton
+            // 
+            VariableButton.Location = new Point(12, 12);
+            VariableButton.Name = "VariableButton";
+            VariableButton.Size = new Size(75, 23);
+            VariableButton.TabIndex = 3;
+            VariableButton.Text = "var";
+            VariableButton.UseVisualStyleBackColor = true;
+            VariableButton.Click += VariableButton_Click;
+            // 
+            // HistoryButton
+            // 
+            HistoryButton.Location = new Point(442, 12);
+            HistoryButton.Name = "HistoryButton";
+            HistoryButton.Size = new Size(75, 23);
+            HistoryButton.TabIndex = 4;
+            HistoryButton.Text = "history";
+            HistoryButton.UseVisualStyleBackColor = true;
+            HistoryButton.Click += HistoryButtonClicked;
+            // 
             // Calculator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(529, 778);
+            Controls.Add(HistoryButton);
+            Controls.Add(VariableButton);
             Controls.Add(CurrentExpressionLabel);
             Controls.Add(CurrentNumberLabel);
             Controls.Add(tabControl1);
@@ -559,11 +584,11 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TableLayoutPanel tableLayoutPanel1;
-        private Button buttonEquals;
-        private Button buttonDot;
+        private Button SolveButton;
+        private Button CommaButton;
         private Button buttonNum0;
-        private Button buttonPlusMinus;
-        private Button buttonLn;
+        private Button PosOrNegButton;
+        private Button LgButton;
         private Button buttonNum1;
         private Button buttonNum2;
         private Button buttonNum3;
@@ -576,20 +601,22 @@
         private Button buttonAdd;
         private Button buttonMinus;
         private Button buttonMultiply;
-        private Button buttonLog;
-        private Button buttonTenPowerX;
-        private Button buttonXPowerOfY;
+        private Button LnButton;
+        private Button CtgButton;
+        private Button TgButton;
         private Button buttonDivide;
-        private Button buttonNfact;
-        private Button buttonBracketRight;
-        private Button buttonBracketLeft;
-        private Button buttonSqrt;
-        private Button buttonPowerOfTwo;
-        private Button buttonInverse;
-        private Button buttonModuleX;
-        private Button buttonExp;
-        private Button buttonMod;
+        private Button RadicalButton;
+        private Button SquareButton;
+        private Button ReverseButton;
+        private Button SinButton;
+        private Button CosButton;
+        private Button PercentButton;
+        private Button CancelEntryButton;
+        private Button ClearButton;
+        private Button DeleteButton;
         private TextBox CurrentNumberLabel;
         private TextBox CurrentExpressionLabel;
+        private Button VariableButton;
+        private Button HistoryButton;
     }
 }

@@ -21,7 +21,6 @@ namespace yapimt_lab4
         {
             InitializeComponent();
             KeyPreview = true;
-            AdditionalDisplay(true);
             resolver = new ExpressionHandler();
             MaxInputLength = DefaultInputLength;
             SetExpression(resolver.GetExpression());
@@ -165,16 +164,16 @@ namespace yapimt_lab4
 
             switch (operation)
             {
-                case "PlusButton":
+                case "buttonAdd":
                     resolver.PutOperator("+");
                     break;
-                case "MinusButton":
+                case "buttonMinus":
                     resolver.PutOperator("-");
                     break;
-                case "MuliplyButton":
+                case "buttonMultiply":
                     resolver.PutOperator("*");
                     break;
-                case "DivisionButton":
+                case "buttonDivide":
                     resolver.PutOperator("/");
                     break;
                 case "PercentButton":
@@ -292,34 +291,6 @@ namespace yapimt_lab4
 
             historyWindow = new HistoryWindow(this, resolver);
             historyWindow.Show();
-        }
-
-        private void AdditionalButtonClicked(object sender, EventArgs e)
-        {
-            AdditionalDisplay(additionalLayout.Visible);
-        }
-
-        private void AdditionalDisplay(bool hide)
-        {
-            int W = additionalLayout.Width;
-            //PercentButton.Enabled = hide;
-
-            if (hide)
-            {
-                VariableButton.Location = new System.Drawing.Point(VariableButton.Location.X - W, 12);
-                HistoryButton.Location = new System.Drawing.Point(HistoryButton.Location.X - W, 12);
-                mainLayout.Location = new System.Drawing.Point(mainLayout.Location.X - W, 41);
-                ClientSize = new System.Drawing.Size(ClientSize.Width - W, 388);
-                additionalLayout.Hide();
-            }
-            else
-            {
-                VariableButton.Location = new System.Drawing.Point(VariableButton.Location.X + W, 12);
-                HistoryButton.Location = new System.Drawing.Point(HistoryButton.Location.X + W, 12);
-                mainLayout.Location = new System.Drawing.Point(mainLayout.Location.X + W, 41);
-                ClientSize = new System.Drawing.Size(ClientSize.Width + W, 388);
-                additionalLayout.Show();
-            }
         }
 
         public void SetVariable(char var)
