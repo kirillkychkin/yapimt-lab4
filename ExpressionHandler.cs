@@ -185,6 +185,26 @@ namespace yapimt_lab4
             }
             EventListener();
         }
+        public void SetVariable(string var)
+        {
+            // устанавливает текущее выражение в вид '<имя_переменной> = '
+
+            Expression = String.Format("{0} = ", var);
+            LastOperand.SetDefault();
+        }
+
+        public void PutVariable(string var)
+        {
+            // вставляет переменную в качестве операнда
+
+            if (LastOperand.GetVariable() != "")
+            {
+                return;
+            }
+
+            LastOperand.SetDefault();
+            LastOperand.SetVariable(var);
+        }
 
         public void SetToDefault()
         {
