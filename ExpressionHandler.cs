@@ -29,6 +29,10 @@ namespace yapimt_lab4
         public FunctionHandler FunctionManager;
 
         private readonly CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+        public Decimal?[] GetVars()
+        {
+            return parser.GetVars();
+        }
 
         public ExpressionHandler()
         {

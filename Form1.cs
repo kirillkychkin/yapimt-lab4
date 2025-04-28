@@ -16,6 +16,12 @@ namespace yapimt_lab4
 
         private HistoryWindow historyWindow;
         private VariableWindow variableWindow;
+        private InsertVariableWindow insertVariableWindow;
+
+        public Decimal?[] GetVars()
+        {
+            return resolver.GetVars();
+        }
 
         public Calculator()
         {
@@ -324,6 +330,17 @@ namespace yapimt_lab4
                 SetNumber(resolver.LastOperand.GetValue());
                 SetExpression(resolver.GetExpression());
             }
+        }
+
+        private void insertVarBtn_Click(object sender, EventArgs e)
+        {
+            // вызывает окно переменных
+
+            if (insertVariableWindow != null && insertVariableWindow.Visible)
+                return;
+
+            insertVariableWindow = new InsertVariableWindow(this);
+            insertVariableWindow.Show();
         }
     }
 }

@@ -66,6 +66,7 @@
             CurrentExpressionLabel = new TextBox();
             VariableButton = new Button();
             HistoryButton = new Button();
+            insertVarBtn = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -558,11 +559,22 @@
             HistoryButton.UseVisualStyleBackColor = true;
             HistoryButton.Click += HistoryButtonClicked;
             // 
+            // insertVarBtn
+            // 
+            insertVarBtn.Location = new Point(216, 12);
+            insertVarBtn.Name = "insertVarBtn";
+            insertVarBtn.Size = new Size(75, 23);
+            insertVarBtn.TabIndex = 5;
+            insertVarBtn.Text = "insert var";
+            insertVarBtn.UseVisualStyleBackColor = true;
+            insertVarBtn.Click += insertVarBtn_Click;
+            // 
             // Calculator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(529, 778);
+            Controls.Add(insertVarBtn);
             Controls.Add(HistoryButton);
             Controls.Add(VariableButton);
             Controls.Add(CurrentExpressionLabel);
@@ -618,5 +630,6 @@
         private TextBox CurrentExpressionLabel;
         private Button VariableButton;
         private Button HistoryButton;
+        private Button insertVarBtn;
     }
 }

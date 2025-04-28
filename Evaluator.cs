@@ -21,7 +21,7 @@ namespace yapimt_lab4
         // типы лексем
         enum Types { NONE, DELIMITER, FUNCTION, NUMBER, VARIABLE };
         // типы ошибок
-        enum Errors { SYNTAX, UNBALPARENS, NOEXP, FUNCNOTEXIST, DIVBYZERO };
+        enum Errors { SYNTAX, UNBALPARENS, NOEXP, FUNCNOTEXIST, DIVBYZERO, VARIABLENULL };
 
         private Dictionary<string, Func<Decimal, Decimal>> FMap = new(); 
 
@@ -33,9 +33,14 @@ namespace yapimt_lab4
         string token; // Текущая лексема
         Types tokType; // Тип лексемы
 
-        Decimal[] vars = new Decimal[26];
+        private Decimal?[] vars = new Decimal?[26];
 
         private ExpressionHandler resolver;
+
+        public Decimal?[] GetVars()
+        {
+            return vars;
+        }
 
         public Evaluator(ExpressionHandler parent)
         {
@@ -45,7 +50,8 @@ namespace yapimt_lab4
 
             for (int i = 0; i < vars.Length; i++)
             {
-                vars[i] = (Decimal)0.0;
+                //vars[i] = (Decimal)0.0;
+                vars[i] = null;
             }
         }
 
@@ -92,7 +98,15 @@ namespace yapimt_lab4
                 SyntaxErr(Errors.SYNTAX);
                 return (Decimal)0.0;
             }
-            return vars[Char.ToUpper(vname[0]) - 'A'];
+            if(vars[Char.ToUpper(vname[0]) - 'A'] != null)
+            {
+                SyntaxErr(Errors.VARIABLENULL);
+                return (Decimal)0.0;
+            }
+            else
+            {
+                return (decimal)vars[Char.ToUpper(vname[0]) - 'A'];
+            }
         }
 
         // Возвращаем лексему во входной поток
@@ -306,7 +320,8 @@ namespace yapimt_lab4
                          "Дисбаланс скобок",
                          "Выражение отсутствет",
                          "Функция не существует",
-                         "Деление на нуль"};
+                         "Деление на нуль",
+                         "Переменная не инициализирована"};
             throw new EvaluatorException(err[(int)error]);
         }
 
