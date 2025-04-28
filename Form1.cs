@@ -354,6 +354,8 @@ namespace yapimt_lab4
 
         private void drawGraph_Click(object sender, EventArgs e)
         {
+            this.expression = expGraph.Text;
+
             Graphics g = pictureBox.CreateGraphics();
             g.Clear(Color.White);
 
