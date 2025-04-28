@@ -13,6 +13,9 @@ namespace yapimt_lab4
         private Font defaultFont = new("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
         private Font middleFont = new("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
         private Font smallFont = new("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+        string expression = "x * x + 2"; // любое алгебраическое выражение
+        float scaleX = 20f; // масштаб по X
+        float scaleY = 20f; // масштаб по Y
 
         private HistoryWindow historyWindow;
         private VariableWindow variableWindow;
@@ -341,6 +344,44 @@ namespace yapimt_lab4
 
             insertVariableWindow = new InsertVariableWindow(this);
             insertVariableWindow.Show();
+        }
+        private float EvaluateExpression(float x)
+        {
+            resolver.SetXVar(x);
+            var result = resolver.SolveForGraph(expression);
+            return Convert.ToSingle(result);
+        }
+
+        private void drawGraph_Click(object sender, EventArgs e)
+        {
+            Graphics g = pictureBox.CreateGraphics();
+            g.Clear(Color.White);
+
+            // Рисуем оси
+            Pen axisPen = new Pen(Color.Black, 1);
+            g.DrawLine(axisPen, 0, this.Height / 2, this.Width, this.Height / 2); // ось X
+            g.DrawLine(axisPen, this.Width / 2, 0, this.Width / 2, this.Height);  // ось Y
+
+            // Рисуем график
+            Pen graphPen = new Pen(Color.Blue, 2);
+            float prevX = -this.Width / 2 / scaleX;
+            float prevY = EvaluateExpression(prevX);
+
+            for (int pixelX = 0; pixelX < this.Width; pixelX++)
+            {
+                float x = (pixelX - this.Width / 2) / scaleX;
+                float y = EvaluateExpression(x);
+
+                float screenX1 = this.Width / 2 + prevX * scaleX;
+                float screenY1 = this.Height / 2 - prevY * scaleY;
+                float screenX2 = this.Width / 2 + x * scaleX;
+                float screenY2 = this.Height / 2 - y * scaleY;
+
+                g.DrawLine(graphPen, screenX1, screenY1, screenX2, screenY2);
+
+                prevX = x;
+                prevY = y;
+            }
         }
     }
 }

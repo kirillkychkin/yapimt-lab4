@@ -36,6 +36,10 @@ namespace yapimt_lab4
         private Decimal?[] vars = new Decimal?[26];
 
         private ExpressionHandler resolver;
+        public void SetXVar(float x)
+        {
+            vars[23] = (decimal?)x;
+        }
 
         public Decimal?[] GetVars()
         {
@@ -98,7 +102,7 @@ namespace yapimt_lab4
                 SyntaxErr(Errors.SYNTAX);
                 return (Decimal)0.0;
             }
-            if(vars[Char.ToUpper(vname[0]) - 'A'] != null)
+            if(vars[Char.ToUpper(vname[0]) - 'A'] == null)
             {
                 SyntaxErr(Errors.VARIABLENULL);
                 return (Decimal)0.0;

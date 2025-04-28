@@ -29,6 +29,11 @@ namespace yapimt_lab4
         public FunctionHandler FunctionManager;
 
         private readonly CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+
+        public void SetXVar(float x)
+        {
+            parser.SetXVar(x);
+        }
         public Decimal?[] GetVars()
         {
             return parser.GetVars();
@@ -173,6 +178,15 @@ namespace yapimt_lab4
             }
 
             return false;
+        }
+
+        public Decimal SolveForGraph(string exp)
+        {
+            Expression = exp;
+
+            // результат и ошибка
+            KeyValuePair<Decimal, string> result = parser.Evaluate(Expression);
+            return Result = result.Key;
         }
 
         public void ExpressionDone(string exp = null)

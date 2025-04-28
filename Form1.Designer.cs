@@ -62,14 +62,19 @@
             ClearButton = new Button();
             DeleteButton = new Button();
             tabPage2 = new TabPage();
+            pictureBox = new PictureBox();
+            drawGraph = new Button();
+            labelGraph = new Label();
+            expGraph = new TextBox();
             CurrentNumberLabel = new TextBox();
             CurrentExpressionLabel = new TextBox();
             VariableButton = new Button();
             HistoryButton = new Button();
-            insertVarBtn = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -511,6 +516,10 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(pictureBox);
+            tabPage2.Controls.Add(drawGraph);
+            tabPage2.Controls.Add(labelGraph);
+            tabPage2.Controls.Add(expGraph);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -518,6 +527,40 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox
+            // 
+            pictureBox.Location = new Point(8, 61);
+            pictureBox.Name = "pictureBox";
+            pictureBox.Size = new Size(505, 473);
+            pictureBox.TabIndex = 3;
+            pictureBox.TabStop = false;
+            // 
+            // drawGraph
+            // 
+            drawGraph.Location = new Point(371, 17);
+            drawGraph.Name = "drawGraph";
+            drawGraph.Size = new Size(142, 23);
+            drawGraph.TabIndex = 2;
+            drawGraph.Text = "Построить график";
+            drawGraph.UseVisualStyleBackColor = true;
+            drawGraph.Click += drawGraph_Click;
+            // 
+            // labelGraph
+            // 
+            labelGraph.AutoSize = true;
+            labelGraph.Location = new Point(8, 21);
+            labelGraph.Name = "labelGraph";
+            labelGraph.Size = new Size(24, 15);
+            labelGraph.TabIndex = 1;
+            labelGraph.Text = "y =";
+            // 
+            // expGraph
+            // 
+            expGraph.Location = new Point(38, 18);
+            expGraph.Name = "expGraph";
+            expGraph.Size = new Size(310, 23);
+            expGraph.TabIndex = 0;
             // 
             // CurrentNumberLabel
             // 
@@ -559,22 +602,11 @@
             HistoryButton.UseVisualStyleBackColor = true;
             HistoryButton.Click += HistoryButtonClicked;
             // 
-            // insertVarBtn
-            // 
-            insertVarBtn.Location = new Point(216, 12);
-            insertVarBtn.Name = "insertVarBtn";
-            insertVarBtn.Size = new Size(75, 23);
-            insertVarBtn.TabIndex = 5;
-            insertVarBtn.Text = "insert var";
-            insertVarBtn.UseVisualStyleBackColor = true;
-            insertVarBtn.Click += insertVarBtn_Click;
-            // 
             // Calculator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(529, 778);
-            Controls.Add(insertVarBtn);
             Controls.Add(HistoryButton);
             Controls.Add(VariableButton);
             Controls.Add(CurrentExpressionLabel);
@@ -583,9 +615,13 @@
             Name = "Calculator";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculator";
+            KeyPress += Calculator_KeyPress;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -630,6 +666,9 @@
         private TextBox CurrentExpressionLabel;
         private Button VariableButton;
         private Button HistoryButton;
-        private Button insertVarBtn;
+        private Button drawGraph;
+        private Label labelGraph;
+        private TextBox expGraph;
+        private PictureBox pictureBox;
     }
 }
